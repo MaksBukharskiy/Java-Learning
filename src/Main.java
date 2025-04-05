@@ -1,9 +1,8 @@
 public class Main {
     public static void main(String[] args) {
     Person person1 = new Person();
-    String p1 = "Maks";
-    int a1 = 16;
-    person1.setNameAndAge(p1, a1);
+    person1.setName("Maks");
+    person1.setAge(16);
     person1.getInfo();
     int year1 = person1.calculateYearsToRetirement();
     System.out.println("Years to retirement: " + year1);
@@ -11,10 +10,8 @@ public class Main {
     System.out.println();
 
     Person person2 = new Person();
-    String s2 = "Andrey";
-    int a2 = 18;
-    person2.setNameAndAge(s2, a2);
-    person2.age = 18;
+    person2.setName("Andrey");
+    person2.setAge(22);
     person2.getInfo();
     int year2 = person2.calculateYearsToRetirement();
     System.out.println("Years to retirement: " + year2);
@@ -24,6 +21,27 @@ public class Main {
 class Person {
     private String name;
     private int age;
+
+
+    public void setName(String userName){
+        if(userName.isEmpty()){
+            System.out.println("Name is empty");
+        }else{
+        name = userName;
+        }
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setAge(int userAge){
+        age = userAge;
+    }
+
+    public int getAge(){
+        return age;
+    }
 
     void setNameAndAge(String username, int userage) {
         name = username;
