@@ -36,7 +36,12 @@ class Person {
     }
 
     public void setAge(int userAge){
-        age = userAge;
+        if (userAge < 0){
+            System.out.println("Age is negative");
+        }
+        else {
+            age = userAge;
+        }
     }
 
     public int getAge(){
