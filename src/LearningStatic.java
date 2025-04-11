@@ -1,18 +1,24 @@
 public class LearningStatic {
     public static void main(String[] args) {
-        Human.books = "Harry Potter";
-        Human.howMany = 12;
+        Human h1 = new Human("Maks", 16);
+        Human h2 = new Human("Andrey", 19);
 
-        Human.total();
+        h1.printNumberOfPeople();
+        h2.printNumberOfPeople();
+    }
+
+    static class Human {
+        private String name;
+        private int age;
+        private static int countPeople;
+
+        public Human(String name, int age) {
+            this.name = name;
+            this.age = age;
+            countPeople++;
+        }
+        public void printNumberOfPeople() {
+            System.out.println("Number of people: " + countPeople);
+        }
     }
 }
-
-class Human{
-    public static String books;
-    public static int howMany;
-
-    public static void total(){
-        System.out.println("You have read " + howMany + " " + books + " books");
-    }
-        }
-длоцупдлоуыполдпыва
