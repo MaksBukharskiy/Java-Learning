@@ -4,7 +4,7 @@ public class FriendsStatic {
         Friend friend2 = new Friend("Maks");
         Friend friend3 = new Friend("Maks");
 
-        System.out.println(Friend.numOfFriends);
+        Friend.showFriends();
     }
 }
 
@@ -15,5 +15,9 @@ class Friend {
     public Friend(String name) {
         this.name = name;
         numOfFriends++;
+    }
+
+    static void showFriends() {
+        System.out.println("You have " + numOfFriends + " friends");
     }
 }
