@@ -15,3 +15,4 @@ class Human{
         System.out.println("You have read " + howMany + " " + books + " books");
     }
         }
+длоцупдлоуыполдпыва
