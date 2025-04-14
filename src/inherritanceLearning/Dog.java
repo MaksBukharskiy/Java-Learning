@@ -5,7 +5,13 @@ public class Dog extends Animal{
         System.out.println("Bark");
     }
 
+    @Override
     public void sing(){
         System.out.println("Dog is Singing");
+    }
+
+    @Override
+    public void eat(){
+        System.out.println("Dog is Eating");
     }
 }

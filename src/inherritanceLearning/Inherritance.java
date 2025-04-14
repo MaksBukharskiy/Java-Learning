@@ -5,11 +5,13 @@ public class Inherritance {
         Animal animal = new Animal();
         Dog dog = new Dog();
 
-        dog.sing();
-        dog.bark();
+        animal.eat();
+        animal.sing();
 
         System.out.println();
 
-        animal.sing();
+        dog.sing();
+        dog.eat();
+        dog.bark();
     }
 }
