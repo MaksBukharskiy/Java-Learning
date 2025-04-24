@@ -20,9 +20,9 @@ public enum Translation implements Description{
             }
         };
 
-        public static void printDescriptions(){
-            for(Translation day : Translation.values()){
-                System.out.println(day + ": " + day.getDescription());
-            }
-        }
+        public static void printDescription(){
+           for (Translation day : Translation.values()){
+               System.out.println(day + ": " + day.getDescription());
+           }
+    }
 }
