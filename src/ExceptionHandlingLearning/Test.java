@@ -6,12 +6,22 @@ public class Test {
     public static void main(String[] args) {
         String str = null;
 
-        try{
+        int a = 10;
+        int b = 0;
+
+        try {
             System.out.println(str.length());
         }
-
         catch(NullPointerException e){
-            System.out.println("Ошибка, попытка вызвать на null объекте");
+            System.out.println("Error, attempt to call on null object");
+        }
+
+        try{
+            int result = a / b;
+            System.out.println("Result is " + result);
+        }
+        catch (ArithmeticException e){
+            System.out.println("Sorry, but you cant divide by zero");
         }
     }
 }
