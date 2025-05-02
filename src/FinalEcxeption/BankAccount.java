@@ -11,14 +11,14 @@ public class BankAccount {
 
     public void transferTo(BankAccount recipient, double amount)
             throws NotEnoughMoneyException, InvalidAccountException{
-        if(recipient == null || !recipient.accountNumber.matches("\\\\d{4}-\\\\d{4}-\\\\d{4}")){
+        if(recipient == null || !recipient.accountNumber.matches("\\d{4}-\\d{4}-\\d{4}")){
             throw new InvalidAccountException(
                     recipient != null ? recipient.accountNumber : "null"
             );
         }
 
         if(amount > balance){
-            throw new NotEnoughMoneyException(balance, amount)
+            throw new NotEnoughMoneyException(balance, amount);
         }
 
         // Если все ок - выполняем перевод
