@@ -20,8 +20,13 @@ public class Test {
             int result = a / b;
             System.out.println("Result is " + result);
         }
-        catch (ArithmeticException e){
-            System.out.println("Sorry, but you cant divide by zero");
+        catch (ArithmeticException e) {
+            System.out.println("Sorry, but you cant divide by zero " + b);
+        }
+
+        finally {
+            System.out.println();
+            System.out.println("Program has successfully ended");
         }
     }
 }
