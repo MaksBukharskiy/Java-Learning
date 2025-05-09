@@ -18,7 +18,7 @@ public class PasswordValidator {
 
         PasswordCheck hasSpecialChar = p -> {
             if (!p.matches(".*[!@#$%^&*].*")) {
-                throw new InvalidPasswordException("Пароль должен содержать спецсимвол (!@#$%^&*)!");
+                throw new InvalidPasswordException("The password must contain a special character (!@#$%^&*)!");
             }
             return true;
         };

@@ -15,6 +15,5 @@ public class Test {
         catch (InvalidPasswordException e){
             System.err.println("❌ Error: " + e.getMessage());
         }
-
     }
 }
