@@ -2,7 +2,7 @@ package Names;
 import Names.NameCheckException;
 
 public class NamesValidator {
-    public static void validateName(String name) throws NameCheckException{
+    public static void validateName(String Name) throws NameCheckException{
         NameCheck isShort = (n) ->{
             if(n.length() < 2){
                 throw new NameCheckException("Имя не должно быть меньше 2 символов");
@@ -17,7 +17,7 @@ public class NamesValidator {
             return true;
         };
 
-        isShort.check(name);
-        isLong.check(name);
+        isShort.check(Name);
+        isLong.check(Name);
     }
 }

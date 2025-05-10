@@ -1,7 +1,7 @@
 package Passwordddddddd;
 
-public class InvalidPasswordEcxeptionn extends RuntimeException {
-    public InvalidPasswordEcxeptionn(String message) {
+public class InvalidPasswordExceptionn extends Exception {
+    public InvalidPasswordExceptionn(String message) {
         super(message);
     }
 }

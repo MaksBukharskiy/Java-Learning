@@ -1,4 +1,6 @@
 package Passwordddddddd;
 
-public interface PasswordCheck {
+@FunctionalInterface
+public interface PasswordCheck  {
+    boolean passwordCheck(int password) throws InvalidPasswordExceptionn;
 }
