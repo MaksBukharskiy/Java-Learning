@@ -12,6 +12,14 @@ public class Test {
         for(FruitBasket fruit : basket){
             System.out.println(fruit);
         }
+
+        if(basket.contains(FruitBasket.MANGO)){
+            System.out.println("\nHere is a Mango");
+        }
+
+        else{
+            System.out.println("\nMango not founded");
+        }
     }
 }
 
