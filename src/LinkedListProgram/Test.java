@@ -8,6 +8,16 @@ public class Test {
 
         list.add("Apple");
         list.add("Mango");
+        list.addFirst("Banana");
+        list.addLast("Kiwi");
+
+        list.removeLast();
+        list.removeFirst();
+
+        list.getFirst();
+        list.getLast();
+
+        System.out.println(list);
 
         for(String fruit : list){
             System.out.println(fruit);
