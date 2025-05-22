@@ -15,6 +15,8 @@ public class Test {
 
         linkedHashSet.remove("Lola");
 
+        System.out.println(linkedHashSet.contains("Lola"));
+        System.out.println(linkedHashSet.contains("Maks"));
         System.out.println(linkedHashSet); //важен порядок
     }
 }
