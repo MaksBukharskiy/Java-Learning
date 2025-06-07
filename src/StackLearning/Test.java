@@ -8,7 +8,7 @@ public class Test {
 
         stack.push("a");
         stack.push("b");
-
+                                                                                                    
         System.out.println(stack.pop());
         System.out.println(stack.search("e"));
         
