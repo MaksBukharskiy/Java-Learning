@@ -8,7 +8,7 @@ public class MyThread{
             int seconds = 0;
             while(active){
                 System.out.println("Seconds " + ++seconds);
-
+                
                 try{
                     Thread.sleep(2000);
                 }
