@@ -15,7 +15,7 @@ public class MyThread {
                 Thread.currentThread().interrupt();
             }
         }
-    }
+    } 
 
     public void wakeAll(){
         synchronized(lock){
