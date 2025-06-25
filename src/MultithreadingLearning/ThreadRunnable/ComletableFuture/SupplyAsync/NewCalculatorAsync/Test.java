@@ -18,7 +18,7 @@ public class Test {
         combineFuture.thenAccept(resultof -> System.out.println("Result: " + resultof));
 
         logger.logCompletion().thenRun(() -> System.out.println("Done"));
-        
+
     }
 }
 
