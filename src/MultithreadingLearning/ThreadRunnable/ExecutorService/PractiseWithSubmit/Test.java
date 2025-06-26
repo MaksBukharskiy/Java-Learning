@@ -17,5 +17,7 @@ public class Test {
         Thread.sleep(2000);
         System.out.println(future.isDone());
 
+        executor.shutdown();
+
     }
 }
