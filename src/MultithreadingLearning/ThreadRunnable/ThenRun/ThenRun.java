@@ -13,7 +13,7 @@ public class ThenRun {
                     System.out.println("Выполняется действие после завершения задачи (thenRun).");
                 });
 
-        // Ожидание завершения
+
         future.join();
     }
 }
