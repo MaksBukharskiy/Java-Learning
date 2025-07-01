@@ -6,35 +6,20 @@ import java.util.concurrent.Executors;
 
 public class Message {
 
-    public CompletableFuture<String> getMessage1(String message1) {
+    private static final ExecutorService executor = Executors.newFixedThreadPool(2);
+
+    public CompletableFuture<String> getMessage1(String message) {
         return CompletableFuture.supplyAsync(() -> {
-            System.out.println(message1 + " is going");
+            System.out.println(Thread.currentThread().getName() +  " - " + message);
             return "Message 1";
-        });
+        }, executor);
     }
 
-    public CompletableFuture <String> getMessage2(String message2) {
+    public CompletableFuture <String> getMessage2(String message) {
         return CompletableFuture.supplyAsync(() -> {
-            System.out.println(message2 + " is going");
+            System.out.println(Thread.currentThread().getName() +  " - " + message);
             return "Message 2";
-        });
+        }, executor);
     }
-
-    public CompletableFuture <String> combineMessages(String message1, String message2){
-        return getMessage1(message1).thenCombine(getMessage2(message2), (mes1, mes2) -> {
-            String overall = mes1 + " : " + mes2;
-            return overall;
-        } );
-    }
-
-    public CompletableFuture<Integer> getMessageLength(String inputMessage){
-        return getMessage1(inputMessage).thenCompose(message ->
-                CompletableFuture.supplyAsync(() -> {
-                    System.out.println("message 1 is: " + message);
-                    return message.length();
-                })
-        );
-    }
-
 
 }

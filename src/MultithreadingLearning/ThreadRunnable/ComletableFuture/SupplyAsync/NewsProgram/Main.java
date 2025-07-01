@@ -8,18 +8,18 @@ import java.util.concurrent.Executors;
 public class Main {
     public static void main(String[] args) {
 
-        Message finalMessage = new Message();
-        NewsService serviceMessages = new NewsService();
+        ExecutorService controlExecutor = Executors.newSingleThreadExecutor();
 
-        CompletableFuture<String> message1 = finalMessage.getMessage1("for message 1");
-        CompletableFuture<String> message2 = finalMessage.getMessage2("for message 2");
+        Message messageService = new Message();
+        MessageProcessor processor = new MessageProcessor(messageService);
 
-        CompletableFuture<Void> waitingForAllMessages = CompletableFuture.allOf(message1, message2);
+        CompletableFuture<Void> workflow = CompletableFuture
+                .runAsync(() -> System.out.println("Начало работы"), controlExecutor)
+                .thenCompose(__ -> processor.processMessages())
+                .thenRunAsync(() -> System.out.println("Завершение работы"), controlExecutor);
 
-        CompletableFuture <String> combineMessages = finalMessage.combineMessages("message1", "message2");
-        CompletableFuture <Integer> getLength = finalMessage.getMessageLength("leng");
-
-        serviceMessages.thenRunAfter().thenRun(() -> System.out.println("Done"));
+        workflow.join();
+        controlExecutor.shutdown();
 
     }
 }
