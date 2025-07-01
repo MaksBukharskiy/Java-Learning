@@ -1,6 +1,8 @@
 package MultithreadingLearning.ThreadRunnable.ComletableFuture.SupplyAsync.NewsProgram;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Message {
 
@@ -22,7 +24,7 @@ public class Message {
         return getMessage1(message1).thenCombine(getMessage2(message2), (mes1, mes2) -> {
             String overall = mes1 + " : " + mes2;
             return overall;
-        });
+        } );
     }
 
     public CompletableFuture<Integer> getMessageLength(String inputMessage){
