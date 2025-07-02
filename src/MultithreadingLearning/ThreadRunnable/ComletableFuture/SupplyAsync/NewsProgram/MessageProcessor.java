@@ -9,15 +9,15 @@ public class MessageProcessor {
         this.messageService = messageService;
     }
 
-    public CompletableFuture<Void> processMessages (){
+    public CompletableFuture<Void> processMessages () {
         return messageService.getMessage1("1 message")
                 .thenCompose(msg1 -> {
-            System.out.println("Processing " + msg1);
-            return messageService.getMessage2("2 message");
-        })
+                    System.out.println("Processing " + msg1);
+                    return messageService.getMessage2("2 message");
+                })
                 .thenAccept(msg2 -> {
                     System.out.println("Processing " + msg2);
                 });
 
-
+    }
 }

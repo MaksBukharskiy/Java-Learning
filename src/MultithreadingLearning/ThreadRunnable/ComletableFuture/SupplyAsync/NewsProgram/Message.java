@@ -22,4 +22,8 @@ public class Message {
         }, executor);
     }
 
+    public static void shutdown() {
+        executor.shutdown();
+    }
+
 }

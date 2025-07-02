@@ -10,16 +10,31 @@ public class Main {
 
         ExecutorService controlExecutor = Executors.newSingleThreadExecutor();
 
-        Message messageService = new Message();
-        MessageProcessor processor = new MessageProcessor(messageService);
+        try {
 
-        CompletableFuture<Void> workflow = CompletableFuture
-                .runAsync(() -> System.out.println("Начало работы"), controlExecutor)
-                .thenCompose(__ -> processor.processMessages())
-                .thenRunAsync(() -> System.out.println("Завершение работы"), controlExecutor);
+            Message messageService = new Message();
+            MessageProcessor processor = new MessageProcessor(messageService);
+            DoneMessage doneMessage = new DoneMessage();
 
-        workflow.join();
-        controlExecutor.shutdown();
+            CompletableFuture<Void> workflow = CompletableFuture
+                    .runAsync(() -> System.out.println("Start"), controlExecutor)
+                    .thenCompose(__ -> processor.processMessages())
+                    .thenRunAsync(() -> System.out.println("Messages is ended"), controlExecutor);
+
+            CompletableFuture<Object> done = CompletableFuture.anyOf(
+                    doneMessage.getEndMessage1(),
+                    doneMessage.getEndMessage2()
+            );
+
+            CompletableFuture.allOf(workflow, done)
+                    .thenAccept(__ -> System.out.println("All done"));
+        }
+
+        finally {
+            controlExecutor.shutdown();
+            Message.shutdown();
+            DoneMessage.shutdown();
+        }
 
     }
 }
