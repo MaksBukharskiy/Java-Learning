@@ -2,9 +2,10 @@ package MultithreadingLearning.ThreadRunnable.CopyOnWriteArrayList;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException , ExecutionException {
 
         NameService service = new NameService();
 
@@ -13,7 +14,8 @@ public class Main {
 
         CompletableFuture.allOf(addFuture, arrayListFuture).join();
 
-        System.out.println("Your total names is: " + service.getName());
+        CopyOnWriteArrayList<String> result = arrayListFuture.get();
+        System.out.println("Your total names is: " + result);
 
     }
 }

@@ -5,7 +5,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class NameService {
 
-    public CopyOnWriteArrayList<String> names;
+    private final CopyOnWriteArrayList<String> names = new CopyOnWriteArrayList<>();
 
     public CompletableFuture<Void> addName(){
             return CompletableFuture.supplyAsync(() -> {
