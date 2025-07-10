@@ -7,7 +7,6 @@ public class ClientEmailModel {
     private final String username;
     private final String text;
     private final List<String> recipients;
-    private final EmailPriority userPriority;
 
 
     public ClientEmailModel(String username, String text, List<String> recipients){
