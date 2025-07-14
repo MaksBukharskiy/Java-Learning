@@ -8,6 +8,8 @@ public class Main {
 
         ValueService value = new ValueService();
         ExecutorService executor = Executors.newFixedThreadPool(3);
+        ExecutorService executor2 = Executors.newSingleThreadExecutor();
+
 
         for (int i = 0; i < 5; i++) {
             executor.execute(() -> {
@@ -23,8 +25,12 @@ public class Main {
 
         }
 
-        System.out.println("The value is: " + value);
+        executor2.execute(() -> {
+                System.out.println("Hi");
+        });
+
         executor.shutdown();
+        executor2.shutdown();
 
     }
 }
