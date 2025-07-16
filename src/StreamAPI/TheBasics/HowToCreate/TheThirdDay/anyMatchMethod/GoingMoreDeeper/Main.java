@@ -1,5 +1,7 @@
 package StreamAPI.TheBasics.HowToCreate.TheThirdDay.anyMatchMethod.GoingMoreDeeper;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.List;
 
 public class Main {
@@ -8,6 +10,7 @@ public class Main {
         List<User> users = List.of(
                 new User("Maks", 161.0),
                 new User("Maks", 165.0),
+                new User("Artem", 150.1),
                 new User("Artem", 150.1)
         );
 
@@ -18,6 +21,17 @@ public class Main {
         boolean isAllExpensive = users.stream()
                 .allMatch(n -> n.price() > 150);
 
+        boolean isNoneMatch = users.stream()
+                .noneMatch(p -> p.name().contains("u"));
+
+
+        if (isNoneMatch){
+            List<User> maksRes = users.stream()
+                    .filter(o -> o.name().length() > 4)
+                    .distinct().toList();
+
+            System.out.println(maksRes);
+        }
 
         if(isExpensive && isAllExpensive){
             System.out.println(true);
@@ -25,8 +39,6 @@ public class Main {
         else {
             System.out.println(false);
         }
-
-
 
     }
 }
