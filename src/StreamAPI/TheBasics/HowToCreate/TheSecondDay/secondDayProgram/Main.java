@@ -1,4 +1,4 @@
-package StreamAPI.TheBasics.HowToCreate.secondDayProgram;
+package StreamAPI.TheBasics.HowToCreate.TheSecondDay.secondDayProgram;
 
 import java.util.ArrayList;
 import java.util.List;

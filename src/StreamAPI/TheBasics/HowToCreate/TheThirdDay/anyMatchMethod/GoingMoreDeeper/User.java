@@ -1,4 +1,4 @@
-package StreamAPI.TheBasics.HowToCreate.TheThirdDay.UnderstandingTheMethod.GoingMoreDeeper;
+package StreamAPI.TheBasics.HowToCreate.TheThirdDay.anyMatchMethod.GoingMoreDeeper;
 
 public record User(String name, double price) {
 }
