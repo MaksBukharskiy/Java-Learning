@@ -1,6 +1,4 @@
-package StreamAPI.TheBasics.HowToCreate.TheFourthDay;
-
-import org.w3c.dom.ls.LSOutput;
+package StreamAPI.TheBasics.HowToCreate.TheFourthDay.FlatMapLearning;
 
 import java.util.List;
 
