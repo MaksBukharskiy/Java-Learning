@@ -1,4 +1,7 @@
 package StreamAPI.TheBasics.HowToCreate.TheFifthDay.Homework;
 
-public record PersonNames() {
+import java.util.List;
+
+public record PersonNames(List<String> lastName) {
+
 }
