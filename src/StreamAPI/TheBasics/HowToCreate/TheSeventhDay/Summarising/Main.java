@@ -1,7 +1,9 @@
 package StreamAPI.TheBasics.HowToCreate.TheSeventhDay.Summarising;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -22,15 +24,25 @@ public class Main {
                 .distinct()
                 .collect(Collectors.summingInt(Integer::intValue));
 
-        String result = resultOfFinal.stream()
+        String result = resultOfFinal.parallelStream()
                 .filter(s -> s.startsWith("A"))
                 .map(s -> s.toUpperCase())
                 .sorted()
                 .collect(Collectors.joining(", "));
 
+        Map<Integer, List<String>> finalResult = resultOfFinal.parallelStream()
+                .sorted(Comparator.reverseOrder())
+                .distinct()
+                .map(s -> " " + s + " ")
+                .skip(1)
+                .limit(2)
+                .collect(Collectors.groupingBy(String::length));
+
 
         System.out.println(sumOfIntStream);
         System.out.println(result);
+
+        System.out.println(finalResult);
 
     }
 }
