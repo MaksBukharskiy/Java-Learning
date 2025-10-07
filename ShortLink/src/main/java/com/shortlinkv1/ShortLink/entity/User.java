@@ -1,11 +1,11 @@
-package com.shortlinkv1.ShortLink.Entity;
+package com.shortlinkv1.ShortLink.entity;
 
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "entity")
+@Table(name = "users")
 public class User {
 
     @Id
